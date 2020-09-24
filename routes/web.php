@@ -27,6 +27,11 @@ Route::get('/pages/{id}/{slug}', [PagesController::class, 'show'])
 
 
 // VIEW COMPOSERS ------------------------------------------
+  View::composer('posts._index', function($view){
+    $view->with('posts', App\Models\Post::orderBy('datePublication', 'desc')->take(10)->get());
+  });
+
+
   View::composer('pages._menu', function($view){
     $view->with('pages', App\Models\Page::all());
   });
