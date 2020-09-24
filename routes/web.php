@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
 use App\Http\Controllers\PagesController;
 
 Route::get('/', [PagesController::class, 'show'])->name('homepage');
@@ -19,3 +23,10 @@ Route::get('/', [PagesController::class, 'show'])->name('homepage');
 Route::get('/pages/{id}/{slug}', [PagesController::class, 'show'])
         ->where(['id' => '[1-9][0-9]*', 'slug' => '[a-z0-9][a-z0-9\-]*'])
         ->name('pages.show');
+
+
+
+// VIEW COMPOSERS ------------------------------------------
+  View::composer('pages._menu', function($view){
+    $view->with('pages', App\Models\Page::all());
+  });
