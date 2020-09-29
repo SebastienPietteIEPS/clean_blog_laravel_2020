@@ -20,7 +20,7 @@
       {{ $post->sousTitre }}
     </h3>
   </a>
-  <p class="post-meta">Posted {{ $post->datePublication }}</p>
+  <p class="post-meta">Posted {{ $post->datePublication }} by {{$post->author->firstname}} {{$post->author->lastname}}</p>
 </div>
 <hr>
 @endforeach
