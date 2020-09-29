@@ -12,7 +12,7 @@
 <!-- POSTS LIST -->
 @foreach ($posts as $post)
 <div class="post-preview">
-  <a href="post.html">
+  <a href="{{ route('posts.show', ['id' => $post->id, 'slug' => Str::slug($post->titre, '-')]) }}">
     <h2 class="post-title">
       {{ $post->titre }}
     </h2>

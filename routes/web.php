@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
 Route::get('/', [PagesController::class, 'show'])->name('homepage');
 
@@ -24,6 +25,9 @@ Route::get('/pages/{id}/{slug}', [PagesController::class, 'show'])
         ->where(['id' => '[1-9][0-9]*', 'slug' => '[a-z0-9][a-z0-9\-]*'])
         ->name('pages.show');
 
+Route::get('/posts/{id}/{slug}', [PostsController::class, 'show'])
+        ->where(['id' => '[1-9][0-9]*', 'slug' => '[a-z0-9][a-z0-9\-]*'])
+        ->name('posts.show');
 
 
 // VIEW COMPOSERS ------------------------------------------
