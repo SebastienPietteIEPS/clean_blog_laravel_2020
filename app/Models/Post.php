@@ -11,4 +11,8 @@ class Post extends Model
     public function author() {
         return $this->belongsTo('App\Models\Author', 'author_id', 'id');
     }
+
+    public function tags() {
+        return $this->belongsToMany('App\models\tag', 'posts_has_tags');
+    }
 }
